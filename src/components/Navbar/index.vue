@@ -1,10 +1,38 @@
 <template>
   <div id="navbar" class="navbar">
-    <div class="container container-fluid">
-      <div>
-        <img src="@/assets/logo-white.png" />
-      </div>
-    </div>
+    <v-app-bar app color="#FB8C00">
+      <v-container>
+        <div class="d-flex align-center">
+          <router-link to="/">
+            <v-img
+              alt="Vuetify Logo"
+              class="shrink mr-2"
+              contain
+              src="@/assets/logo-white.png"
+              transition="scale-transition"
+            />
+          </router-link>
+          <div class="d-flex full-width">
+            <v-text-field
+              label="Find a recipe..."
+              single-line
+              hide-details
+              solo
+              class="navbar-input-search"
+            ></v-text-field>
+            <v-btn
+              color="grey lighten-3"
+              light
+              large
+              height="48"
+              class="navbar-btn-search"
+            >
+              <v-icon>mdi-magnify</v-icon>
+            </v-btn>
+          </div>
+        </div>
+      </v-container>
+    </v-app-bar>
   </div>
 </template>
 

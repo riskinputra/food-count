@@ -2,7 +2,7 @@
 @import './_variables.scss';
 @import './_mixin.scss';
 @import './_extends.scss';
-@import './_flexboxgrid.scss';
+// @import './_flexboxgrid.scss';
 // @import './_hljs.scss';
 
 * {
@@ -113,3 +113,10 @@ img {
   max-width: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: $c-grey-base;
+  &:hover {
+    color: $c-orange-base;
+  }
+}

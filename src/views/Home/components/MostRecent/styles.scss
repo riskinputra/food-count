@@ -1,0 +1,13 @@
+@import '@/styles/_variables';
+@import '@/styles/_mixin';
+
+.most-recent {
+  &--head {
+    @include flexbox;
+    @include justify-content(space-between);
+    @include align-items(flex-end);
+    h3 {
+      color: $c-orange-base;
+    }
+  }
+}
