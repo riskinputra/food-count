@@ -1,0 +1,16 @@
+@import '@/styles/_variables';
+@import '@/styles/_mixin';
+
+.navbar {
+  height: 50px;
+  width: 100%;
+  background: $c-orange-base; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, $c-orange-base, $c-orange-darken-1); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, $c-orange-base, $c-orange-darken-1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  transition: transform 280ms ease 0s;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+
+  @include box-shadow(3px 2px 15px -5px rgba(0,0,0,0.75));
+}
