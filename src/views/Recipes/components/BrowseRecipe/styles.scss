@@ -1,0 +1,12 @@
+@import '@/styles/_variables';
+@import '@/styles/_mixin';
+
+.recipes-browse {
+  background-color: $c-grey-lighten-1;
+  padding: $gutter-md 0;
+
+  &--title {
+    font-size: $text-xl;
+    color: $c-orange-base;
+  }
+}

@@ -1,0 +1,20 @@
+@import '@/styles/_variables';
+@import '@/styles/_mixin';
+
+.recipes-detail {
+  &--title {
+    font-size: $text-xxl;
+    line-height: 48px;
+  }
+  &--image {
+    &-src {
+      @include radius;
+    }
+  }
+  &--summary {
+    background-color: $c-grey-lighten-1;
+    padding: $gutter-lg;
+    line-height: 34px;
+
+  }
+}

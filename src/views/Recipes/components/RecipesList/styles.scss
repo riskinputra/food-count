@@ -1,0 +1,41 @@
+@import '@/styles/_variables';
+@import '@/styles/_mixin';
+
+.recipes-list {
+  a {
+    text-decoration: none;
+    color: $c-black-base;
+  }
+
+  &--title {
+    @include flexbox;
+    @include flex-direction(column);
+
+    margin: 5.25px;
+    padding: $gutter-xs;
+    border: 1px solid #3d3d3d;
+    color: $c-black-base;
+    font-size: $text-md;
+    line-height: 20px;
+    &-container {
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      -ms-align-self: center;
+      align-self: center;
+      background-color: rgba(255,255,255,.66);
+      min-width: 30%;
+      max-width: 100%;
+      padding: $gutter-xxs;
+      @include transition(opacity .3s ease-in-out);
+    }
+  }
+
+  &--action {
+    @include border-radius-top(0)
+  }
+
+  &--image {
+
+    @include border-radius-top(4px)
+  }
+}

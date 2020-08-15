@@ -4,7 +4,7 @@
       <v-col cols="12" sm="12" class="pb-0">
         <div class="most-recent--head">
           <h3 class="mb-0">Most Recent</h3>
-          <router-link to="#">
+          <router-link to="/recipes">
             <i>view all recipes >></i>
           </router-link>
         </div>
