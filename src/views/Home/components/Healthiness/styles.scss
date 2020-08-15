@@ -1,0 +1,38 @@
+@import '@/styles/_variables';
+@import '@/styles/_mixin';
+
+.healthiness {
+  &-head {
+    h3 {
+      color: $c-orange-base;
+    }
+  }
+  &-content-lg {
+    position: relative;
+    @include flexbox;
+  }
+  &-img-lg {
+    max-height: 480px;
+    -webkit-mask: linear-gradient(to top left, transparent, black);
+    mask-image: linear-gradient(to top left, transparent, black);
+    @include border-radius-left(4px);
+
+  }
+  &-title-lg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 40%;
+    padding: $gutter-lg;
+    font-size: $gutter-xl;
+    line-height: 36px;
+  }
+  &-title-sm {
+    font-size: $text-md;
+    line-height: 20px;
+    margin-bottom: $gutter-sm;
+  }
+  &-img-sm {
+    @include border-radius-left(4px);
+  }
+}

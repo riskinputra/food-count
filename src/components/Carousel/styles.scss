@@ -1,0 +1,26 @@
+@import '@/styles/_variables';
+@import '@/styles/_mixin';
+
+.carousel {
+  &-container {
+
+    -webkit-align-self: center;
+    -moz-align-self: center;
+    -ms-align-self: center;
+    align-self: center;
+    background-color: rgba(255,255,255,.82);
+    min-width: 30%;
+    max-width: 60%;
+    @include transition(opacity .3s ease-in-out);
+  }
+  &-title {
+
+    @include flexbox;
+    @include flex-direction(column);
+
+    margin: 5.25px;
+    padding: 21px;
+    border: 1px solid #3d3d3d;
+    color: $c-black-base;
+  }
+}

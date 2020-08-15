@@ -18,6 +18,9 @@
   justify-content: $s;
 }
 @mixin flex-direction($s...) {
+  -webkit-flex-direction: $s;
+  -moz-flex-direction: $s;
+  -ms-flex-direction: $s;
   flex-direction: $s
 }
 @mixin flex-middle {

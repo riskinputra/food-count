@@ -113,10 +113,14 @@ img {
   max-width: 100%;
 }
 
-a {
-  text-decoration: none;
-  color: $c-grey-base;
-  &:hover {
-    color: $c-orange-base;
-  }
+.block-elipsis {
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 14px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

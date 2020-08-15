@@ -1,20 +1,43 @@
 <template>
   <div id="most-recent" class="most-recent">
     <v-row>
-      <v-col cols="12" sm="12">
+      <v-col cols="12" sm="12" class="pb-0">
         <div class="most-recent--head">
-          <h3>Most Recent</h3>
+          <h3 class="mb-0">Most Recent</h3>
           <router-link to="#">
             <i>view all recipes >></i>
           </router-link>
         </div>
       </v-col>
     </v-row>
+
     <v-row>
-      <v-col cols="12" sm="4" v-for="recipe in recipes" :key="recipe.id">
-        <v-card>
-          <v-img :src="recipe.image"></v-img>
-          <v-card-title>{{ recipe.title }}</v-card-title>
+      <v-col
+        v-for="(recipe, index) in recipes"
+        :cols="index <= 1 ? '6' : '12'"
+        sm="4"
+        :key="recipe.id"
+      >
+        <v-card class="most-recent--item">
+          <v-row>
+            <v-col cols="6" sm="6">
+              <div class="recipe-title">
+                <router-link to="#">{{ recipe.title }}</router-link>
+              </div>
+              <v-card-text>
+                <div class="recipe-summary" v-html="recipe.summary"></div>
+              </v-card-text>
+              <v-btn color="#FB8C00" depressed small dark class="recipe-more">
+                Read more
+                <v-icon small class="ml-1">mdi-arrow-right-bold-circle</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="6" sm="6" class="pt-0 pb-0">
+              <router-link to="#">
+                <v-img :src="recipe.image" class="recipe-image"></v-img>
+              </router-link>
+            </v-col>
+          </v-row>
         </v-card>
       </v-col>
     </v-row>
@@ -22,6 +45,7 @@
 </template>
 
 <script>
+import formatTime from "@/utils/format-time";
 export default {
   name: "MostRecent",
   data() {
@@ -101,10 +125,15 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    formatTime(getTime) {
+      return formatTime.formatMinute(getTime);
+    }
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "./styles.scss";
 </style>

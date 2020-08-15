@@ -9,5 +9,63 @@
     h3 {
       color: $c-orange-base;
     }
+    a {
+      text-decoration: none;
+      color: $c-grey-base;
+      font-size: $text-sm;
+      &:hover {
+        color: $c-orange-base;
+        text-decoration: underline;
+      }
+    }
+  }
+  &--item {
+    .recipe {
+      &-image {
+        height: 100%;
+        -webkit-mask: linear-gradient(to right, transparent, black);
+          mask-image: linear-gradient(to right, transparent, black);
+        @include border-radius-right(4px);
+      }
+      &-title {
+        padding-left: $gutter-md;
+        font-size: $text-lg;
+        font-weight: bold;
+        a {
+          color: $c-black-base;
+          text-decoration: none;
+          line-height: 24px;
+
+          font-size: 18px;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: block;
+          display: -webkit-box;
+          &:hover {
+            color: $c-orange-base;
+          }
+        }
+      }
+      &-time {
+        font-size: $text-xs;
+        color: $c-grey-base;
+      }
+      &-summary {
+        display: block;
+        display: -webkit-box;
+        max-width: 100%;
+        font-size: 14px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &-more {
+        margin-left: $gutter-md;
+      }
+
+    }
   }
 }

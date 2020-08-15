@@ -7,4 +7,7 @@
   &-btn-search {
     @include border-radius-left(0)
   }
+  .v-app-bar {
+    z-index: 999;
+  }
 }

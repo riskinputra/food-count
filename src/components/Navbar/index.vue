@@ -8,7 +8,7 @@
               alt="Vuetify Logo"
               class="shrink mr-2"
               contain
-              src="@/assets/logo-white.png"
+              src="@/assets/logo-white.svg"
               transition="scale-transition"
             />
           </router-link>

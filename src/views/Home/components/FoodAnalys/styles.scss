@@ -1,0 +1,42 @@
+@import '@/styles/_variables';
+@import '@/styles/_mixin';
+
+.food-analys {
+  .food-analys {
+    &-head {
+      h3 {
+        color: $c-orange-base;
+      }
+    }
+
+    &-label {
+      height: 250px;
+      font-size: $text-xl;
+      font-weight: bold;
+      color: $c-grey-lighten-1;
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(center);
+    }
+    &-result {
+      &--title {
+        font-weight: bold;
+      }
+      .key {
+        text-transform: capitalize;
+      }
+
+    }
+  }
+  .related-recipe {
+    a {
+      text-decoration: none;
+      color: $c-grey-base;
+      margin: $gutter-md 0;
+      &:hover {
+        color: $c-orange-base;
+        text-decoration: underline;
+      }
+    }
+  }
+}

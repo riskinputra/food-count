@@ -1,1 +1,12 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87.5 100"><defs><style>.cls-1{fill:#1697f6;}.cls-2{fill:#7bc6ff;}.cls-3{fill:#1867c0;}.cls-4{fill:#aeddff;}</style></defs><title>Artboard 46</title><polyline class="cls-1" points="43.75 0 23.31 0 43.75 48.32"/><polygon class="cls-2" points="43.75 62.5 43.75 100 0 14.58 22.92 14.58 43.75 62.5"/><polyline class="cls-3" points="43.75 0 64.19 0 43.75 48.32"/><polygon class="cls-4" points="64.58 14.58 87.5 14.58 43.75 100 43.75 62.5 64.58 14.58"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="195" height="49" viewBox="0 0 195 49">
+  <g id="Group_1" data-name="Group 1" transform="translate(-56 -1)">
+    <text id="Food_Recipe" data-name="Food Recipe" transform="translate(106 37)" fill="#fb8c00" font-size="28" font-family="Pacifico-Regular, Pacifico"><tspan x="0" y="0">Food Recipe</tspan></text>
+    <g id="Page-1" transform="translate(56 5.001)">
+      <g id="_028---Calorie-Counting" data-name="028---Calorie-Counting" transform="translate(0 0)">
+        <circle id="Oval" cx="21" cy="21" r="21" transform="translate(0 -0.001)" fill="#fb8c00"/>
+        <circle id="Oval-2" data-name="Oval" cx="14" cy="14" r="14" transform="translate(7 6.999)" fill="#fff"/>
+        <text id="FR" transform="translate(10 26.999)" fill="#fb8c00" font-size="14" font-family="Pacifico-Regular, Pacifico"><tspan x="0" y="0">FR</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

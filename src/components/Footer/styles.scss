@@ -1,0 +1,33 @@
+@import '@/styles/_variables';
+@import '@/styles/_mixin';
+
+.footer {
+  background-color: #F5F5F5;
+  margin-top: $gutter-lg;
+  padding: $gutter-xxl;
+  width: 100%;
+  font-size: $text-sm;
+
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-direction(column);
+
+  &-image {
+    margin-bottom: $gutter-md;
+  }
+
+  .content-copyright {
+
+    width: 20%; 
+    text-align: center; 
+    border-bottom: 1px solid $c-orange-base; 
+    line-height: 0.1em;
+    margin: auto;
+    
+    span {
+      background:#F5F5F5; 
+      padding:0 10px; 
+    }
+  }
+}
