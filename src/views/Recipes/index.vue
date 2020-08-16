@@ -8,8 +8,11 @@
 </template>
 
 <script>
+import { isEmpty } from "lodash";
+
 import RecipesList from "./components/RecipesList";
 import BrowseRecipe from "./components/BrowseRecipe";
+
 export default {
   name: "Recipes",
   components: {
@@ -17,7 +20,12 @@ export default {
     RecipesList
   },
   created() {
-    this.$store.dispatch("getMoreRecipes", { sort: "time" });
+    const { query } = this.$route.params;
+    if (!isEmpty(query)) {
+      this.$store.dispatch("getMoreRecipes", { query });
+    } else {
+      this.$store.dispatch("getMoreRecipes", { sort: "time" });
+    }
   }
 };
 </script>

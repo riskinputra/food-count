@@ -11,7 +11,18 @@
       </v-col>
     </v-row>
 
-    <v-row>
+    <v-row v-if="recentRecipes.isLoading">
+      <v-col v-for="index in 3" :key="index" sm="4">
+        <v-skeleton-loader
+          class="mx-auto mb-1"
+          height="100"
+          max-width="100%"
+          type="image"
+        ></v-skeleton-loader>
+      </v-col>
+    </v-row>
+
+    <v-row v-else>
       <v-col
         v-for="(recipe, index) in recentRecipes.results"
         :cols="index <= 1 ? '6' : '12'"
@@ -22,9 +33,9 @@
           <v-row>
             <v-col cols="6" sm="6">
               <div class="recipe-title">
-                <router-link :to="`/recipes/${recipe.id}`">{{
-                  recipe.title
-                }}</router-link>
+                <router-link :to="`/recipes/${recipe.id}`">
+                  {{ recipe.title }}
+                </router-link>
               </div>
               <v-card-text>
                 <div class="recipe-summary" v-html="recipe.summary"></div>

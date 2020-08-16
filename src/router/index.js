@@ -27,6 +27,11 @@ const routes = [
     path: "/recipes/:id",
     name: "RecipesDetail",
     component: RecipesDetail
+  },
+  {
+    path: "/recipes/query/:query",
+    name: "Recipes",
+    component: Recipes
   }
 ];
 

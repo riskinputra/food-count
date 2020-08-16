@@ -9,11 +9,18 @@
     </v-row>
     <v-row>
       <v-col cols="12" sm="8">
-        <v-card>
+        <v-skeleton-loader
+          class="mx-auto"
+          max-width="100%"
+          type="image"
+          v-if="healtRecipes.isLoading"
+        ></v-skeleton-loader>
+        <v-card v-else>
           <div class="healthiness-content-lg">
             <v-img
               :src="healtRecipes.topFirstRecipe.image"
               class="healthiness-img-lg"
+              min-height="400"
             />
             <div class="healthiness-title-lg">
               <div>
@@ -40,7 +47,27 @@
       </v-col>
 
       <v-col cols="12" sm="4" class="pt-0">
-        <v-row>
+        <div v-if="healtRecipes.isLoading">
+          <v-skeleton-loader
+            class="mx-auto mb-1"
+            height="100"
+            max-width="100%"
+            type="image"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mx-auto mb-1"
+            height="100"
+            max-width="100%"
+            type="image"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mx-auto mb-1"
+            height="100"
+            max-width="100%"
+            type="image"
+          ></v-skeleton-loader>
+        </div>
+        <v-row v-else>
           <v-col
             class="pl-md-0"
             cols="12"
@@ -60,9 +87,9 @@
                 </v-col>
                 <v-col cols="8" sm="8">
                   <div class="healthiness-title-sm">
-                    <router-link :to="`/recipes/${healthy.id}`">{{
-                      healthy.title
-                    }}</router-link>
+                    <router-link :to="`/recipes/${healthy.id}`">
+                      {{ healthy.title }}
+                    </router-link>
                   </div>
                   <v-btn
                     color="#FB8C00"

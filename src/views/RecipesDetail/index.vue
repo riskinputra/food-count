@@ -1,15 +1,31 @@
 <template>
   <div id="recipes-detail" class="recipes-detail">
-    <Breadcrumbs :items="breadcrumbs" :current="recipeData.title" />
+    <Breadcrumbs
+      :items="breadcrumbs"
+      :current="recipeData.title"
+      v-if="!recipeData.isLoading"
+    />
     <v-container>
       <v-row>
         <v-col cols="12" sm="12">
-          <div class="recipes-detail--head">{{ recipeData.title }}</div>
+          <v-skeleton-loader
+            class="mx-auto mb-1"
+            max-width="100%"
+            type="heading"
+            v-if="recipeData.isLoading"
+          ></v-skeleton-loader>
+          <div class="recipes-detail--head" v-else>{{ recipeData.title }}</div>
         </v-col>
       </v-row>
       <v-row>
         <v-col cols="12" sm="7">
-          <div class="recipes-detail--image">
+          <v-skeleton-loader
+            class="mx-auto mb-1"
+            max-width="100%"
+            type="image"
+            v-if="recipeData.isLoading"
+          ></v-skeleton-loader>
+          <div class="recipes-detail--image" v-else>
             <v-img
               class="recipes-detail--image-src"
               :src="recipeData.image"
@@ -19,7 +35,19 @@
           </div>
         </v-col>
         <v-col cols="12" sm="5">
-          <v-row>
+          <div v-if="recipeData.isLoading">
+            <v-skeleton-loader
+              class="mb-1"
+              max-width="70%"
+              type="list-item-two-line"
+            ></v-skeleton-loader>
+            <v-skeleton-loader
+              class="mb-1"
+              max-width="50%"
+              type="list-item-two-line"
+            ></v-skeleton-loader>
+          </div>
+          <v-row v-else>
             <v-col cols="12" sm="12" class="pt-0">
               <div>
                 <v-icon class="mr-1">mdi-clock-time-three-outline</v-icon>
@@ -86,7 +114,13 @@
       </v-row>
       <v-row>
         <v-col cols="12" sm="12">
-          <v-row>
+          <v-skeleton-loader
+            class="mb-1"
+            max-width="100%"
+            type="paragraph"
+            v-if="recipeData.isLoading"
+          ></v-skeleton-loader>
+          <v-row v-else>
             <v-col cols="12" sm="12">
               <div
                 v-html="recipeData.summary"
@@ -97,7 +131,24 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" sm="12">
+        <v-col cols="12" sm="12" v-if="recipeData.isLoading">
+          <v-skeleton-loader
+            class="mb-10"
+            width="100%"
+            type="heading"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mb-1"
+            max-width="50%"
+            type="list-item-two-line"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mb-1"
+            max-width="50%"
+            type="list-item-two-line"
+          ></v-skeleton-loader>
+        </v-col>
+        <v-col cols="12" sm="12" v-else>
           <v-row>
             <v-col cols="12" sm="12">
               <div class="recipes-detail--title">
@@ -136,7 +187,7 @@
           </v-row>
         </v-col>
       </v-row>
-      <v-row>
+      <v-row v-if="!recipeData.isLoading">
         <v-col cols="12" sm="12">
           <v-row>
             <v-col cols="12" sm="12">

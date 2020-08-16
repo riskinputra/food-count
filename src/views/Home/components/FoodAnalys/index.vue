@@ -23,9 +23,9 @@
             <v-row>
               <v-col cols="12" sm="12" class="py-0">
                 <span>Cat:</span>
-                <v-chip class="ma-2" color="#FB8C00" outlined small>{{
-                  analyze.category.name.split("_").join(" ")
-                }}</v-chip>
+                <v-chip class="ma-2" color="#FB8C00" outlined small>
+                  {{ analyze.category.name.split("_").join(" ") }}
+                </v-chip>
               </v-col>
             </v-row>
             <v-row
@@ -59,9 +59,9 @@
             :key="recipe.id"
           >
             <div class="related-recipe">
-              <router-link :to="`/recipes/${recipe.id}`">{{
-                recipe.title
-              }}</router-link>
+              <router-link :to="`/recipes/${recipe.id}`">
+                {{ recipe.title }}
+              </router-link>
             </div>
           </v-col>
         </v-row>

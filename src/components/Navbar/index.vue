@@ -47,7 +47,7 @@ export default {
   }),
   methods: {
     findRecipehandler() {
-      this.$store.dispatch("getMoreRecipes", { query: this.search });
+      this.$router.push(`/recipes/query/${this.search}`);
     }
   }
 };

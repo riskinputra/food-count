@@ -1,6 +1,16 @@
 <template>
   <div id="recipes-list" class="recipes-list">
-    <v-row>
+    <v-row v-if="recipesData.isLoading">
+      <v-col cols="6" sm="3" v-for="index in 8" :key="index">
+        <v-skeleton-loader
+          class="mx-auto mb-1"
+          width="100%"
+          max-width="100%"
+          type="image"
+        ></v-skeleton-loader>
+      </v-col>
+    </v-row>
+    <v-row v-else>
       <v-col
         cols="6"
         sm="3"
@@ -15,9 +25,9 @@
               height="250"
             >
               <div class="recipes-list--title-container">
-                <v-card-title class="recipes-list--title">
-                  {{ recipe.title }}
-                </v-card-title>
+                <v-card-title class="recipes-list--title">{{
+                  recipe.title
+                }}</v-card-title>
               </div>
             </v-img>
           </router-link>
