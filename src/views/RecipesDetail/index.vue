@@ -10,7 +10,7 @@
             </span>
           </li>
           <li>
-            <router-link to="/">Recipes</router-link>
+            <router-link to="/recipes">Recipes</router-link>
             <span>
               <v-icon small>mdi-chevron-right</v-icon>
             </span>
@@ -42,10 +42,10 @@
             <v-col cols="12" sm="12" class="pt-0">
               <div>
                 <v-icon class="mr-1">mdi-clock-time-three-outline</v-icon>
-                <span
-                  >Ready in
-                  {{ formatMinutes(recipesDetail.readyInMinutes) }}</span
-                >
+                <span>
+                  Ready in
+                  {{ formatMinutes(recipesDetail.readyInMinutes) }}
+                </span>
               </div>
               <div>
                 <v-icon class="mr-1">mdi-currency-usd</v-icon>
@@ -123,9 +123,9 @@
                 <div class="recipes-detail--title-text">Ingredients</div>
                 <div class="recipes-detail--title-info">
                   <div>
-                    <span>{{
-                      formatMinutes(recipesDetail.readyInMinutes)
-                    }}</span>
+                    <span>
+                      {{ formatMinutes(recipesDetail.readyInMinutes) }}
+                    </span>
                     <v-icon class="ml-1">mdi-clock-time-three-outline</v-icon>
                   </div>
                   <div>
@@ -145,9 +145,11 @@
                   v-for="ingredient in recipesDetail.extendedIngredients"
                   :key="ingredient.id"
                 >
-                  <span class="ingredient-unit">{{
-                    `${ingredient.measures.metric.amount} ${ingredient.measures.metric.unitShort}`
-                  }}</span>
+                  <span class="ingredient-unit">
+                    {{
+                      `${ingredient.measures.metric.amount} ${ingredient.measures.metric.unitShort}`
+                    }}
+                  </span>
                   {{ ingredient.originalName }}
                 </v-col>
               </v-row>
