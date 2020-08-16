@@ -4,6 +4,7 @@
     class="dropzone-file"
     :options="dropzoneOptions"
     :useCustomSlot="true"
+    @vdropzone-sending="sendingFiles"
   >
     <v-row>
       <v-col cols="12" sm="12">
@@ -30,16 +31,20 @@ export default {
   components: {
     vueDropzone
   },
-  data: function() {
-    return {
-      dropzoneOptions: {
-        url: "https://httpbin.org/post",
-        thumbnailWidth: 200,
-        addRemoveLinks: true,
-        maxFilesize: 3,
-        acceptedFiles: ".jpg, .jpeg, .png"
-      }
-    };
+  data: () => ({
+    dropzoneOptions: {
+      url: "https://httpbin.org/post",
+      thumbnailWidth: 200,
+      addRemoveLinks: true,
+      maxFilesize: 3,
+      acceptedFiles: ".jpg, .jpeg, .png"
+    }
+  }),
+  methods: {
+    // a middle layer function where you can change the XHR request properties
+    sendingFiles(files) {
+      this.$store.dispatch("postImageAnalyze", files);
+    }
   }
 };
 </script>

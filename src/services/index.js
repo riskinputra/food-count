@@ -1,5 +1,7 @@
-import recipesAPI from "./listAPI/recipes_API";
+import rapidAPI from "./ListAPI/rapidAPI";
+import spooncularAPI from "./ListAPI/spoonacularAPI";
 
 export default {
-  recipes: { ...recipesAPI }
+  rapid: { ...rapidAPI },
+  spoonacular: { ...spooncularAPI }
 };

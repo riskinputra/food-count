@@ -26,11 +26,25 @@
     padding: $gutter-lg;
     font-size: $gutter-xl;
     line-height: 36px;
+    a {
+      text-decoration: none;
+      color: $c-black-base;
+      &:hover {
+        color: $c-orange-base;
+      }
+    }
   }
   &-title-sm {
     font-size: $text-md;
     line-height: 20px;
     margin-bottom: $gutter-sm;
+    a {
+      text-decoration: none;
+      color: $c-black-base;
+      &:hover {
+        color: $c-orange-base;
+      }
+    }
   }
   &-img-sm {
     @include border-radius-left(4px);

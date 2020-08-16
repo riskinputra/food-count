@@ -15,6 +15,9 @@ export default {
   components: {
     BrowseRecipe,
     RecipesList
+  },
+  created() {
+    this.$store.dispatch("getMoreRecipes", { sort: "time" });
   }
 };
 </script>

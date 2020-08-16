@@ -48,8 +48,8 @@ export default {
     ]
   }),
   methods: {
-    getFilter: value => {
-      console.log("value", value);
+    getFilter(value) {
+      this.$store.dispatch("getMoreRecipes", { type: value });
     }
   }
 };

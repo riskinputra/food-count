@@ -1,14 +1,17 @@
 import axios from "axios";
 
-const API_DOMAIN =
-  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
-
-const SPOONACULAR_API_DEFAULT = axios.create({
-  baseURL: `${API_DOMAIN}/v1`, // eslint-disable-line
+export const RAPID_SPOONACULAR_API_DEFAULT = axios.create({
+  baseURL: process.env.VUE_APP_API_DOMAIN,
   headers: {
+    "Access-Control-Allow-Origin": "*",
     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    "x-rapidapi-key": process.env.API_KEY
+    "x-rapidapi-key": process.env.VUE_APP_API_KEY
   }
 });
 
-export default SPOONACULAR_API_DEFAULT;
+export const SPOONACULAR_API_DEFAULT = axios.create({
+  baseURL: process.env.VUE_APP_API_SPOONCULAR,
+  headers: {
+    "Content-Type": "application/json"
+  }
+});

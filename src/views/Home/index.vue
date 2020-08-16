@@ -21,6 +21,9 @@ export default {
     MostRecent,
     Healthiness,
     FoodAnalys
+  },
+  created() {
+    this.$store.dispatch("getData");
   }
 };
 </script>

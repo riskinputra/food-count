@@ -19,6 +19,8 @@
               hide-details
               solo
               class="navbar-input-search"
+              v-model="search"
+              v-on:keyup.13="findRecipehandler"
             ></v-text-field>
             <v-btn
               color="grey lighten-3"
@@ -26,6 +28,7 @@
               large
               height="48"
               class="navbar-btn-search"
+              @click="findRecipehandler"
             >
               <v-icon>mdi-magnify</v-icon>
             </v-btn>
@@ -38,7 +41,15 @@
 
 <script>
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  data: () => ({
+    search: ""
+  }),
+  methods: {
+    findRecipehandler() {
+      this.$store.dispatch("getMoreRecipes", { query: this.search });
+    }
+  }
 };
 </script>
 

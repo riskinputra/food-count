@@ -11,10 +11,26 @@
       <v-col cols="12" sm="8">
         <v-card>
           <div class="healthiness-content-lg">
-            <v-img :src="firstHealthiness.image" class="healthiness-img-lg" />
+            <v-img
+              :src="healtRecipes.topFirstRecipe.image"
+              class="healthiness-img-lg"
+            />
             <div class="healthiness-title-lg">
-              <div>{{ firstHealthiness.title }}</div>
-              <v-btn color="#FB8C00" depressed small dark>
+              <div>
+                <router-link
+                  :to="`/recipes/${healtRecipes.topFirstRecipe.id}`"
+                  >{{ healtRecipes.topFirstRecipe.title }}</router-link
+                >
+              </div>
+              <v-btn
+                color="#FB8C00"
+                depressed
+                small
+                dark
+                @click="
+                  $router.push(`/recipes/${healtRecipes.topFirstRecipe.id}`)
+                "
+              >
                 Get the recipe
                 <v-icon small class="ml-1">mdi-arrow-right-bold-circle</v-icon>
               </v-btn>
@@ -29,20 +45,33 @@
             class="pl-md-0"
             cols="12"
             sm="12"
-            v-for="healthy in healthiness"
+            v-for="healthy in healtRecipes.results"
             :key="healthy.id"
           >
             <v-card>
               <v-row>
                 <v-col cols="4" sm="4" class="py-0 pr-0">
-                  <v-img
-                    :src="healthy.image"
-                    class="fill-height healthiness-img-sm"
-                  />
+                  <router-link :to="`/recipes/${healthy.id}`">
+                    <v-img
+                      :src="healthy.image"
+                      class="fill-height healthiness-img-sm"
+                    />
+                  </router-link>
                 </v-col>
                 <v-col cols="8" sm="8">
-                  <div class="healthiness-title-sm">{{ healthy.title }}</div>
-                  <v-btn color="#FB8C00" depressed small dark class="mt-1">
+                  <div class="healthiness-title-sm">
+                    <router-link :to="`/recipes/${healthy.id}`">{{
+                      healthy.title
+                    }}</router-link>
+                  </div>
+                  <v-btn
+                    color="#FB8C00"
+                    depressed
+                    small
+                    dark
+                    class="mt-1"
+                    @click="$router.push(`/recipes/${healthy.id}`)"
+                  >
                     Get the recipe
                     <v-icon small class="ml-1"
                       >mdi-arrow-right-bold-circle</v-icon
@@ -59,43 +88,13 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "Healthiness",
-  data() {
-    return {
-      firstHealthiness: {
-        id: 305925,
-        title: "Spinach Stuffed Baked Sole",
-        image: "https://spoonacular.com/recipeImages/305925-312x231.jpeg",
-        imageType: "jpeg"
-      },
-      healthiness: [
-        {
-          id: 30338,
-          title: "Spanish-Style Carrots and Cauliflower",
-          image: "https://spoonacular.com/recipeImages/30338-312x231.jpg",
-          imageType: "jpg"
-        },
-        {
-          id: 1164981,
-          title: "Instant Pot Stuffed Spaghetti Squash",
-          image: "https://spoonacular.com/recipeImages/1164981-312x231.jpg",
-          imageType: "jpg"
-        },
-        {
-          id: 86266,
-          title: "Roast Cod with Leeks, Tomatoes, and Spinach",
-          image: "https://spoonacular.com/recipeImages/86266-312x231.png",
-          imageType: "png"
-        },
-        {
-          id: 87731,
-          title: "Wasabi Salmon",
-          image: "https://spoonacular.com/recipeImages/87731-312x231.jpg",
-          imageType: "jpg"
-        }
-      ]
-    };
+  computed: {
+    ...mapState({
+      healtRecipes: state => state.app.healthiness
+    })
   }
 };
 </script>

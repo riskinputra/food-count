@@ -2,33 +2,6 @@
 @import '@/styles/_mixin';
 
 .recipes-detail {
-  .breadcrumbs {
-    background-color: $c-grey-lighten-1;
-    ul {
-      list-style: none;
-      padding-left: 0;
-      font-size: $text-sm;
-      @include flexbox;
-      @include align-items(center);
-
-      li {
-        color: $c-grey-base;
-        a {
-          text-decoration: none;
-          color: $c-orange-base;
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-        .current {
-          max-width: 350px;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-        }
-      }
-    }
-  }
   &--head {
     font-size: $text-xxl;
     line-height: 48px;
