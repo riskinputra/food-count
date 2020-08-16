@@ -1,6 +1,6 @@
 # Food Recipe
 
-[!food-recipe](public/logo.png)
+![food-recipe](public/big-logo.png)
 
 is a website for finding recipes, in the form of viewing nutritional information, what ingredients are used and even analyzing food through pictures.
 
