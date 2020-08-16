@@ -9,6 +9,8 @@ const Recipes = () =>
   import(/* webpackChunkName: "Recipes" */ "@/views/Recipes");
 const RecipesDetail = () =>
   import(/* webpackChunkName: "RecipesDetail" */ "@/views/RecipesDetail");
+const Notfound = () =>
+  import(/* webpackChunkName: "Notfound" */ "@/views/Notfound");
 
 Vue.use(VueRouter);
 
@@ -32,6 +34,11 @@ const routes = [
     path: "/recipes/query/:query",
     name: "Recipes",
     component: Recipes
+  },
+  {
+    path: "/*",
+    name: "Notfound",
+    component: Notfound
   }
 ];
 

@@ -1,24 +1,24 @@
-# food-count
+# Food Recipe
 
-## Project setup
-```
-yarn install
-```
+[!food-recipe](public/logo.png)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+is a website for finding recipes, in the form of viewing nutritional information, what ingredients are used and even analyzing food through pictures.
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## How to used
 
-### Lints and fixes files
-```
-yarn lint
-```
+```brew
+# clone repository
+$ git clone git@github.com:riskinputra/food-count.git
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# move to directory
+$ cd food-count
+
+# installing dependencies
+$ yarn install
+
+# start program with hot reload at localhost:3000
+# use npm
+$ npm run start
+# use yarn
+$ yarn start
+```
