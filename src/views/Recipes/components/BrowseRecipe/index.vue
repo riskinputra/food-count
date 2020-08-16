@@ -3,7 +3,9 @@
     <v-container>
       <v-row>
         <v-col cols="3" sm="2">
-          <div class="recipes-browse--title d-flex align-center">Browse recipes</div>
+          <div class="recipes-browse--title d-flex align-center">
+            Browse recipes
+          </div>
         </v-col>
         <v-col cols="9" sm="10">
           <div class="recipes-browse--filter">
@@ -52,4 +54,3 @@ export default {
 <style lang="scss" scoped>
 @import "./styles.scss";
 </style>
-

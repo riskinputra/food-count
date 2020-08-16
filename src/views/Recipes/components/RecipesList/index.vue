@@ -10,11 +10,20 @@
               height="250"
             >
               <div class="recipes-list--title-container">
-                <v-card-title class="recipes-list--title">{{recipe.title}}</v-card-title>
+                <v-card-title class="recipes-list--title">{{
+                  recipe.title
+                }}</v-card-title>
               </div>
             </v-img>
           </router-link>
-          <v-btn color="#FB8C00" depressed small dark width="100%" class="recipes-list--action">
+          <v-btn
+            color="#FB8C00"
+            depressed
+            small
+            dark
+            width="100%"
+            class="recipes-list--action"
+          >
             Get the recipe
             <v-icon small class="ml-1">mdi-arrow-right-bold-circle</v-icon>
           </v-btn>

@@ -1,7 +1,15 @@
 <template>
   <v-menu offset-y>
     <template v-slot:activator="{ on, attrs }">
-      <v-btn class="mr-1" color="#FB8C00" width="100%" dark v-bind="attrs" v-on="on" outlined>
+      <v-btn
+        class="mr-1"
+        color="#FB8C00"
+        width="100%"
+        dark
+        v-bind="attrs"
+        v-on="on"
+        outlined
+      >
         Cuisines
         <v-icon class="ml-1">mdi-menu-down</v-icon>
       </v-btn>

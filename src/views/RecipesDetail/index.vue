@@ -1,9 +1,30 @@
 <template>
   <div id="recipes-detail" class="recipes-detail">
+    <div class="breadcrumbs">
+      <v-container>
+        <ul>
+          <li>
+            <router-link to="/">Home</router-link>
+            <span class="breadcrumbs-icon">
+              <v-icon small>mdi-chevron-right</v-icon>
+            </span>
+          </li>
+          <li>
+            <router-link to="/">Recipes</router-link>
+            <span>
+              <v-icon small>mdi-chevron-right</v-icon>
+            </span>
+          </li>
+          <li>
+            <div class="current">{{ recipesDetail.title }}</div>
+          </li>
+        </ul>
+      </v-container>
+    </div>
     <v-container>
       <v-row>
         <v-col cols="12" sm="12">
-          <div class="recipes-detail--title">{{recipesDetail.title}}</div>
+          <div class="recipes-detail--head">{{ recipesDetail.title }}</div>
         </v-col>
       </v-row>
       <v-row>
@@ -21,36 +42,63 @@
             <v-col cols="12" sm="12" class="pt-0">
               <div>
                 <v-icon class="mr-1">mdi-clock-time-three-outline</v-icon>
-                <span>Ready in {{formatMinutes(recipesDetail.readyInMinutes)}}</span>
+                <span
+                  >Ready in
+                  {{ formatMinutes(recipesDetail.readyInMinutes) }}</span
+                >
               </div>
               <div>
                 <v-icon class="mr-1">mdi-currency-usd</v-icon>
-                <span>{{recipesDetail.pricePerServing}} per serving</span>
+                <span>{{ recipesDetail.pricePerServing }} per serving</span>
               </div>
             </v-col>
             <v-col cols="12" sm="12">
               <div>
                 <strong>Cuisines:</strong>
               </div>
-              <div>{{recipesDetail.cuisines && recipesDetail.cuisines.length > 1 ? recipesDetail.cuisines.join(', ') : recipesDetail.cuisines.join('')}}</div>
+              <div>
+                {{
+                  recipesDetail.cuisines && recipesDetail.cuisines.length > 1
+                    ? recipesDetail.cuisines.join(", ")
+                    : recipesDetail.cuisines.join("")
+                }}
+              </div>
             </v-col>
             <v-col cols="12" sm="12">
               <div>
                 <strong>Dish types:</strong>
               </div>
-              <div>{{recipesDetail.dishTypes && recipesDetail.dishTypes.length > 1 ? recipesDetail.dishTypes.join(', ') : recipesDetail.dishTypes.join('')}}</div>
+              <div>
+                {{
+                  recipesDetail.dishTypes && recipesDetail.dishTypes.length > 1
+                    ? recipesDetail.dishTypes.join(", ")
+                    : recipesDetail.dishTypes.join("")
+                }}
+              </div>
             </v-col>
             <v-col cols="12" sm="12">
               <div>
                 <strong>Diets:</strong>
               </div>
-              <div>{{recipesDetail.diets && recipesDetail.diets.length > 1 ? recipesDetail.diets.join(', ') : recipesDetail.diets.join('')}}</div>
+              <div>
+                {{
+                  recipesDetail.diets && recipesDetail.diets.length > 1
+                    ? recipesDetail.diets.join(", ")
+                    : recipesDetail.diets.join("")
+                }}
+              </div>
             </v-col>
             <v-col cols="12" sm="12">
               <div>
                 <strong>Occasions:</strong>
               </div>
-              <div>{{recipesDetail.occasions && recipesDetail.occasions.length > 1 ? recipesDetail.occasions.join(', ') : recipesDetail.occasions.join('')}}</div>
+              <div>
+                {{
+                  recipesDetail.occasions && recipesDetail.occasions.length > 1
+                    ? recipesDetail.occasions.join(", ")
+                    : recipesDetail.occasions.join("")
+                }}
+              </div>
             </v-col>
           </v-row>
         </v-col>
@@ -59,7 +107,102 @@
         <v-col cols="12" sm="12">
           <v-row>
             <v-col cols="12" sm="12">
-              <div v-html="recipesDetail.summary" class="recipes-detail--summary"></div>
+              <div
+                v-html="recipesDetail.summary"
+                class="recipes-detail--summary"
+              ></div>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12" sm="12">
+          <v-row>
+            <v-col cols="12" sm="12">
+              <div class="recipes-detail--title">
+                <div class="recipes-detail--title-text">Ingredients</div>
+                <div class="recipes-detail--title-info">
+                  <div>
+                    <span>{{
+                      formatMinutes(recipesDetail.readyInMinutes)
+                    }}</span>
+                    <v-icon class="ml-1">mdi-clock-time-three-outline</v-icon>
+                  </div>
+                  <div>
+                    <span>{{ recipesDetail.servings }} servings</span>
+                    <v-icon class="ml-1">mdi-chart-pie</v-icon>
+                  </div>
+                </div>
+              </div>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" sm="12">
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  v-for="ingredient in recipesDetail.extendedIngredients"
+                  :key="ingredient.id"
+                >
+                  <span class="ingredient-unit">{{
+                    `${ingredient.measures.metric.amount} ${ingredient.measures.metric.unitShort}`
+                  }}</span>
+                  {{ ingredient.originalName }}
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12" sm="12">
+          <v-row>
+            <v-col cols="12" sm="12">
+              <div class="recipes-detail--title">
+                <div class="recipes-detail--title-text">Directions</div>
+              </div>
+            </v-col>
+            <v-col cols="12" sm="12">
+              <div class="recipes-detail--preparation">
+                <div class="preparation-icon">
+                  <v-icon class="mr-1" large
+                    >mdi-clock-time-three-outline</v-icon
+                  >
+                </div>
+                <div class="preparation-time border-right">
+                  <div>Prep</div>
+                  <div>{{ recipesDetail.preparationMinutes }} m</div>
+                </div>
+                <div class="preparation-time border-right">
+                  <div>Cook</div>
+                  <div>{{ recipesDetail.cookingMinutes }} m</div>
+                </div>
+                <div class="preparation-time">
+                  <div>Ready in</div>
+                  <div>{{ recipesDetail.readyInMinutes }} m</div>
+                </div>
+              </div>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" sm="12">
+              <div
+                class="recipes-detail--instructions pb-10"
+                v-for="(instruction,
+                index) in recipesDetail.analyzedInstructions"
+                :key="index"
+              >
+                <div class="pb-1">
+                  <strong>{{ instruction.name }}</strong>
+                </div>
+                <ul class="step">
+                  <li v-for="step in instruction.steps" :key="step.number">
+                    <span class="step-number">{{ step.number }}.</span>
+                    <span class="step-instruction">{{ step.step }}</span>
+                  </li>
+                </ul>
+              </div>
             </v-col>
           </v-row>
         </v-col>

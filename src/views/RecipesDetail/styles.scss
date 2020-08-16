@@ -2,7 +2,34 @@
 @import '@/styles/_mixin';
 
 .recipes-detail {
-  &--title {
+  .breadcrumbs {
+    background-color: $c-grey-lighten-1;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: $text-sm;
+      @include flexbox;
+      @include align-items(center);
+
+      li {
+        color: $c-grey-base;
+        a {
+          text-decoration: none;
+          color: $c-orange-base;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .current {
+          max-width: 350px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  &--head {
     font-size: $text-xxl;
     line-height: 48px;
   }
@@ -16,5 +43,59 @@
     padding: $gutter-lg;
     line-height: 34px;
 
+  }
+  &--title {
+    padding: $gutter-md 0;
+    border-bottom: 1px solid $c-grey-lighten-2;
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+    &-text {
+      font-size: $text-xl;
+    }
+    &-info {
+      @include flexbox;
+      @include align-items(center);
+      
+      div {
+        margin-left: $gutter-md;
+      }
+    }
+  }
+  &--preparation {
+    @include flexbox;
+    @include align-items(center);
+    color: $c-grey-base;
+    font-size: $text-sm;
+    text-align: center;
+    .preparation {
+      &-icon {
+        padding-left: $gutter-md;
+      }
+      &-time {
+        padding: 0 $gutter-md;
+      }
+    }
+    .border-right {
+      border-right: 1px solid $c-grey-lighten-2;
+    }
+  }
+  &--instructions {
+    .step {
+      list-style: none;
+      padding-left: 0;
+      li {
+        margin-bottom: $gutter-sm;
+        @include flexbox;
+      }
+      &-number {
+        color: $c-orange-base;
+        margin-right: $gutter-sm;
+      }
+    }
+  }
+
+  .ingredient-unit {
+    color: $c-orange-base;
   }
 }

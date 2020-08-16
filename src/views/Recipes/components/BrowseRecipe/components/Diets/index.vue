@@ -1,13 +1,25 @@
 vue<template>
   <v-menu offset-y>
     <template v-slot:activator="{ on, attrs }">
-      <v-btn class="mr-1" color="#FB8C00" width="100%" dark v-bind="attrs" v-on="on" outlined>
+      <v-btn
+        class="mr-1"
+        color="#FB8C00"
+        width="100%"
+        dark
+        v-bind="attrs"
+        v-on="on"
+        outlined
+      >
         Special Diets
         <v-icon class="ml-1">mdi-menu-down</v-icon>
       </v-btn>
     </template>
     <v-list class="recipes-browse--filter-list">
-      <v-list-item v-for="(diet, index) in diets" :key="index" @click="getFilter(diet.title)">
+      <v-list-item
+        v-for="(diet, index) in diets"
+        :key="index"
+        @click="getFilter(diet.title)"
+      >
         <v-list-item-title>{{ diet.title }}</v-list-item-title>
       </v-list-item>
     </v-list>
