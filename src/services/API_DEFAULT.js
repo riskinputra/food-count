@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const RAPID_SPOONACULAR_API_DEFAULT = axios.create({
-  baseURL: process.env.VUE_APP_API_DOMAIN,
+  baseURL: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
   headers: {
     "Access-Control-Allow-Origin": "*",
     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -10,7 +10,7 @@ export const RAPID_SPOONACULAR_API_DEFAULT = axios.create({
 });
 
 export const SPOONACULAR_API_DEFAULT = axios.create({
-  baseURL: process.env.VUE_APP_API_SPOONCULAR,
+  baseURL: 'https://api.spoonacular.com',
   headers: {
     "Content-Type": "application/json"
   }
