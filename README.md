@@ -4,6 +4,8 @@
 
 is a website for finding recipes, in the form of viewing nutritional information, what ingredients are used and even analyzing food through pictures.
 
+> Live demo: https://foodres.netlify.app/
+
 ## How to used
 
 ```brew
