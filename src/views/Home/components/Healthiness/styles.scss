@@ -28,7 +28,7 @@
     line-height: 36px;
     a {
       text-decoration: none;
-      color: $c-black-base;
+      color: $c-black-base !important;
       &:hover {
         color: $c-orange-base;
       }
@@ -40,7 +40,7 @@
     margin-bottom: $gutter-sm;
     a {
       text-decoration: none;
-      color: $c-black-base;
+      color: $c-black-base !important;
       &:hover {
         color: $c-orange-base;
       }
